@@ -78,7 +78,6 @@ async function run() {
             data: data
         }
 
-        console.log("Sending transaction to network..")
         const safeTransaction = await safeSdk.createTransaction({ safeTransactionData })
         console.log("Safe transaction created:", safeTransaction)
 

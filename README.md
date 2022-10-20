@@ -43,13 +43,21 @@ This test will transfer `1 wei` to first account, while the other account will s
 yarn dev:send:funds
 ```
 
-Answer will be something like:
+Answer is very long so maybe it's the case to explain the steps:
+
+1) Create the adapter for the owner
+2) Connect to an existing safe (reding the file `safe` previously created)
+3) Create the raw transaction
+4) Sign the transaction with the first address
+5) Sign the transaction with the second address
+6) Execute the transaction
+
+Each step is commented, so you'll be able to read the log and follow the steps:
 ```
-Creating adapter..
-Reading safe address..
-Creating new Safe SDK..
-SDK created, creating transaction..
-Sending transaction to network..
+1) Creating adapter..
+2a) Reading safe address..
+2b) Creating new Safe SDK..
+3) SDK created, creating transaction..
 
 Safe transaction created: EthSafeTransaction {
   signatures: Map(0) {},
@@ -67,7 +75,7 @@ Safe transaction created: EthSafeTransaction {
   }
 }
 
-Signing transaction with signer 1..
+4) Signing transaction with signer 1..
 First signed transaction: EthSafeTransaction {
   signatures: Map(1) {
     '0xe6ccdb4d4da367a6a31297a00e6fda1933cc4e50' => EthSignSignature {
@@ -89,7 +97,7 @@ First signed transaction: EthSafeTransaction {
   }
 }
 
-Signing transaction with signer 2..
+5) Signing transaction with signer 2..
 Second signed transaction: EthSafeTransaction {
   signatures: Map(2) {
     '0xe6ccdb4d4da367a6a31297a00e6fda1933cc4e50' => EthSignSignature {
@@ -115,7 +123,7 @@ Second signed transaction: EthSafeTransaction {
   }
 }
 
-Executing transaction..
+6) Executing transaction..
 Transaction response: {
   to: '0x23A25AB47a33f399CcF67aCEe7B47c3Cd1d2D248',
   from: '0xE6CCdb4d4dA367a6a31297a00e6fDA1933cC4e50',
